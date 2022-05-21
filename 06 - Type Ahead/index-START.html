@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Type Ahead 👀</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <form class="search-form">
@@ -14,9 +16,57 @@
       <li>or a state</li>
     </ul>
   </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-</script>
+  <script>
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    const cities = [];
+
+    fetch(endpoint)
+      .then(response => response.json())
+      .then(data => cities.push(...data));
+    
+
+    function handleInput(e) {
+      const value = e.target.value;
+      const results = getMatches(value);
+      showSuggestions(results, value);
+    }
+
+    function getMatches(value) {
+      return cities.filter(place => {
+        const reg = new RegExp(value, 'i');
+        return place.city.match(reg) || place.state.match(reg);
+      });
+    }
+
+    function showSuggestions(results, value) {
+      const html = results.map(place => {
+        // 高亮
+        const hl = new RegExp(value, 'gi');
+        const city = place.city.replace(hl, '<span class="hl">$&</span>');
+        const state = place.state.replace(hl, '<span class="hl">$&</span>');
+        // 三位分节
+        const comma = /(?<=\d)(?=(\d{3})+$)/g;
+        const population = place.population.replace(comma, ',');
+
+        return `
+          <li>
+            <span>${city}, ${state}</span>
+            <span class="population">${population}</span>
+          </li>
+        `;
+      }).join('');
+
+      suggestions.innerHTML = html;
+    }
+    
+
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    searchInput.addEventListener('input', handleInput);
+  </script>
 </body>
+
 </html>
