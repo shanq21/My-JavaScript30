@@ -21,6 +21,21 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+    :root {
+      --spacing: 10px;
+      --blur: 10px;
+      --base: #ffc600;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl {
+      color: var(--base);
+    }
 
     /*
       misc styles, nothing to do with CSS variables
@@ -47,36 +62,14 @@
 
   <script>
 
-    const img = document.querySelector('img');
-    const js = document.querySelector('.hl');
+    const inputs = document.querySelectorAll('.controls input');
 
-    const myBlur = document.querySelector('#blur');
-
-    img.style.borderStyle = 'solid';
-    img.style.borderWidth =  spacing.value + 'px';
-    img.style.filter = `blur(${myBlur.value}px)`
-    img.style.borderColor = base.value;
-
-    js.style.color = base.value;
-
-    spacing.addEventListener('change', setBorder);
-    spacing.addEventListener('mousemove', setBorder);
-    myBlur.addEventListener('change', setBlur);
-    myBlur.addEventListener('mousemove', setBlur);
-    base.addEventListener('change', setColor);
-    base.addEventListener('mousemove', setColor);
-
-    function setBorder() {
-      img.style.borderWidth =  this.value + 'px';
-    }
-
-    function setBlur() {
-      img.style.filter = `blur(${this.value}px)`
-    }
-
-    function setColor() {
-      img.style.borderColor = this.value;
-      js.style.color = this.value;
+    inputs.forEach(input => input.addEventListener('change', setStyle));
+    inputs.forEach(input => input.addEventListener('mousemove', setStyle));
+    
+    function setStyle() {
+      const suffix = this.dataset.sizing ?? '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
 
   </script>
