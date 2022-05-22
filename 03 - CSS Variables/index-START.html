@@ -42,9 +42,43 @@
     input {
       width: 100px;
     }
+
   </style>
 
   <script>
+
+    const img = document.querySelector('img');
+    const js = document.querySelector('.hl');
+
+    const myBlur = document.querySelector('#blur');
+
+    img.style.borderStyle = 'solid';
+    img.style.borderWidth =  spacing.value + 'px';
+    img.style.filter = `blur(${myBlur.value}px)`
+    img.style.borderColor = base.value;
+
+    js.style.color = base.value;
+
+    spacing.addEventListener('change', setBorder);
+    spacing.addEventListener('mousemove', setBorder);
+    myBlur.addEventListener('change', setBlur);
+    myBlur.addEventListener('mousemove', setBlur);
+    base.addEventListener('change', setColor);
+    base.addEventListener('mousemove', setColor);
+
+    function setBorder() {
+      img.style.borderWidth =  this.value + 'px';
+    }
+
+    function setBlur() {
+      img.style.filter = `blur(${this.value}px)`
+    }
+
+    function setColor() {
+      img.style.borderColor = this.value;
+      js.style.color = this.value;
+    }
+
   </script>
 
 </body>
