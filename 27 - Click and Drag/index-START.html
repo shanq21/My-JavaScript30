@@ -35,6 +35,35 @@
   </div>
 
 <script>
+  const items = document.querySelector('.items');
+
+  let isActive = false;
+  let startX;
+  let scrollLeft;
+
+  function onActive(e) {
+    isActive = true;
+    items.classList.add('active');
+    startX = e.pageX;
+    scrollLeft = items.scrollLeft;
+  }
+
+  function handleScroll(e) {
+    if (!isActive) return;
+    const walk = (e.pageX - startX) * 3;
+    items.scrollLeft = scrollLeft - walk;
+  }
+
+  function offActive(e) {
+    isActive = false;
+    items.classList.remove('active');
+  }
+
+  items.addEventListener('mousedown', onActive);
+  items.addEventListener('mousemove', handleScroll);
+  items.addEventListener('mouseup', offActive);
+  items.addEventListener('mouseleave', offActive);
+  
 </script>
 
   </body>
