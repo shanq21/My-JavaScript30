@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Whack A Mole!</title>
   <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <h1>Whack-a-mole! <span class="score">0</span></h1>
@@ -32,11 +34,70 @@
     </div>
   </div>
 
-<script>
-  const holes = document.querySelectorAll('.hole');
-  const scoreBoard = document.querySelector('.score');
-  const moles = document.querySelectorAll('.mole');
+  <script>
+    let lastHole;
+    let holeTimer;
+    let gameTimer;
 
-</script>
+    let timeUp = false;
+    let score = 0;
+
+    const holes = document.querySelectorAll('.hole');
+    const scoreBoard = document.querySelector('.score');
+    const moles = document.querySelectorAll('.mole');
+
+    function randomTime() {
+      const min = 500;
+      const max = 1000;
+      return Math.round(Math.random() * (max - min) + min);
+    }
+
+    function randomHole() {
+      const idx = Math.floor(Math.random() * holes.length);
+      const hole = holes[idx];
+      if (hole === lastHole) {
+        return randomHole();
+      }
+      lastHole = hole;
+      return hole;
+    }
+
+    function peep() {
+      const hole = randomHole();
+      hole.classList.add('up');
+
+      const time = randomTime();
+      holeTimer = setTimeout(() => {
+        hole.classList.remove('up');
+        if (!timeUp) {
+          peep();
+        }
+      }, time);
+    }
+
+    function startGame() {
+      clearTimeout(holeTimer);
+      clearTimeout(gameTimer);
+      if (lastHole) lastHole.classList.remove('up');
+      scoreBoard.textContent = 0;
+      timeUp = false;
+      score = 0;
+
+      peep();
+
+      gameTimer = setTimeout(() => timeUp = true, 10 * 1000);
+    }
+
+    function bonk(e) {
+      if (!e.isTrusted) return;
+      score++;
+      this.parentNode.classList.remove('up');
+      scoreBoard.textContent = score;
+    }
+
+    moles.forEach(mole => mole.addEventListener('click', bonk));
+
+  </script>
 </body>
+
 </html>

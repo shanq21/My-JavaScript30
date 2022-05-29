@@ -66,7 +66,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
 [29 - Countdown Timer](https://github.com/shanq21/JavaScript30/tree/master/29%20-%20Countdown%20Timer)
 
-30 - Whack A Mole
+[30 - Whack A Mole](https://github.com/shanq21/JavaScript30/tree/master/30%20-%20Whack%20A%20Mole)
 
 ## Community #JavaScript30 Content
 
