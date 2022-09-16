@@ -1,5 +1,7 @@
 # 12 - Key Sequence Detection
 
+[Demo](https://shanq21.github.io/My-JavaScript30/12/index.html) （秘密代码为“haha”）
+
 
 
 ## 需求描述

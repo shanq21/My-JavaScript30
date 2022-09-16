@@ -1,5 +1,7 @@
 # 06 - Type Ahead
 
+[Demo](https://shanq21.github.io/My-JavaScript30/06/index.html)
+
 
 
 ## 需求描述

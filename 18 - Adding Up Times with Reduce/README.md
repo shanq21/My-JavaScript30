@@ -1,5 +1,7 @@
 # 18 - Adding Up Times with Reduce
 
+[Demo](https://shanq21.github.io/My-JavaScript30/18/index.html)
+
 
 
 ## 需求描述

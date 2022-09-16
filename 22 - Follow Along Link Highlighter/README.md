@@ -1,5 +1,7 @@
 # 22 - Follow Along Link Highlighter
 
+[Demo](https://shanq21.github.io/My-JavaScript30/22/index.html)
+
 
 
 ## 需求描述

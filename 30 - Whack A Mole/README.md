@@ -1,5 +1,7 @@
 # 30 - Whack A Mole
 
+[Demo](https://shanq21.github.io/My-JavaScript30/30/index.html)
+
 
 
 ## 需求描述
