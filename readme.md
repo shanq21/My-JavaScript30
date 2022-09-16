@@ -8,9 +8,9 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
 ## My JavaScript30
 
-[01 - JavaScript Drum Kit](./01%20-%20JavaScript%20Drum%20Kit/)：模拟架子鼓
+[01 - JavaScript Drum Kit](./01%20-%20JavaScript%20Drum%20Kit/)
 
-[02 - JS and CSS Clock](./02%20-%20JS%20and%20CSS%20Clock/)：
+[02 - JS and CSS Clock](./02%20-%20JS%20and%20CSS%20Clock/)
 
 [03 - CSS Variables](./03%20-%20CSS%20Variables/)
 
@@ -24,7 +24,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
 08 - Fun with HTML5 Canvas
 
-[09 - Dev Tools Domination (no README)](./08%20-%20Fun%20with%20HTML5%20Canvas/)
+09 - Dev Tools Domination
 
 [10 - Hold Shift and Check Checkboxes](./10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/)
 
@@ -34,7 +34,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
 [13 - Slide in on Scroll](./13%20-%20Slide%20in%20on%20Scroll/)
 
-[14 - JavaScript References VS Copying (no README)](./14%20-%20JavaScript%20References%20VS%20Copying/)
+14 - JavaScript References VS Copying
 
 [15 - Local Storage](./15%20-%20LocalStorage/)
 
