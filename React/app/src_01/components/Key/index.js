@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import './index.css';
 
 export default class Key extends Component {
-  state = {
-    audio: null,
-  }
+  audio = null;
 
   componentDidMount() {
     const { keyData: { name } } = this.props;
     const audioUrl = require(`../../sounds/${name}.wav`);
-    this.setState({
-      audio: new Audio(audioUrl)
-    });
+    this.audio = new Audio(audioUrl);
   }
 
   removeTransition = (e) => {
@@ -21,9 +17,8 @@ export default class Key extends Component {
   }
 
   playSound = () => {
-    const { audio } = this.state;
-    audio.currentTime = 0;
-    audio.play();
+    this.audio.currentTime = 0;
+    this.audio.play();
   }
 
   render() {
