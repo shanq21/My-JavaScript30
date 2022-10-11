@@ -34,4 +34,8 @@ JavaScript30是一个用原生JavaScript完成30个小任务的挑战，原GitHu
 
 
 
-此外，我还用React框架重写了上面的任务：（完善中）
+此外，我还用React框架重写了以下任务：
+
+- **[01 - JavaScript Drum Kit](./React/app/src_01/)：实现键盘架子鼓**
+- **[06 - Type Ahead](./React/app/src_06/)：实现搜索建议功能，包含正则匹配**
+- **[30 - Whack A Mole](./React/app/src_30/)：打地鼠！**
